@@ -1,10 +1,12 @@
 package com.example.customime
 
+import android.content.Context
 import android.inputmethodservice.InputMethodService
 import android.inputmethodservice.Keyboard
 import android.inputmethodservice.KeyboardView
 import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 
 
 class CustomKeyboard : InputMethodService(), KeyboardView.OnKeyboardActionListener {
@@ -26,12 +28,19 @@ class CustomKeyboard : InputMethodService(), KeyboardView.OnKeyboardActionListen
             Keyboard.KEYCODE_DELETE -> ic.deleteSurroundingText(1, 0)
             Keyboard.KEYCODE_SHIFT -> handleShift()
             Keyboard.KEYCODE_DONE -> ic.sendKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER))
+            -100 -> showInputMethodPicker()
             else -> {
                 val char = primaryCode.toChar()
                 ic.commitText(char.toString(), 1)
             }
         }
     }
+
+    private fun showInputMethodPicker() {
+        val imeManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imeManager.showInputMethodPicker()
+    }
+
     private fun handleShift() {
         TODO("Not yet implemented")
     }
