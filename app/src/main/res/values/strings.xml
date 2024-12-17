@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">custom IME</string>
+    <string name="choose_input_method">Choose input method</string>
 </resources>

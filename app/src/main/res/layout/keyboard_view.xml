@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.inputmethodservice.KeyboardView
+<com.example.customime.CustomKeyboardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/keyboard_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:keyBackground="@drawable/key_background"
     android:keyPreviewLayout="@layout/preview_layout"
-    android:keyTextSize="18sp"
+    android:keyPreviewHeight="60dp"
+    android:keyTextSize="24sp"
     android:keyTextColor="#000000"
     android:labelTextSize="14sp" />
